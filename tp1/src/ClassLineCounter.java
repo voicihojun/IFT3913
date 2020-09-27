@@ -1,7 +1,12 @@
 import java.io.*;
+import java.util.regex.Pattern;
 public class ClassLineCounter {
-    protected void run(String directory, String extension) throws IOException {
+    protected String[] run(String directory, String extension) throws IOException {
         File dir = new File(directory);
+        String[] result = new String[5];
+        result[0] = directory;
+        result[1] = "className";
+
         if(dir.exists()) {
             int lineSum = this.processDirectory(dir,extension)[0];
             int commentSum = this.processDirectory(dir,extension)[1];
@@ -9,8 +14,14 @@ public class ClassLineCounter {
             System.out.println("Lines Of Code with comment Line : " + lineSum);
             System.out.println("Lines Of Only Comments : " + commentSum);
             System.out.println("Density Of Comments(CLOC / LOC) : " + density);
+            result[2] = Integer.toString(lineSum);
+            result[3] = Integer.toString(commentSum);
+            result[4] = Float.toString(density);
+
+            return result;
         } else {
             System.err.printf("%s there is no directory", directory);
+            return result;
         }
     }
     private int[] processDirectory(File directory, String extension) throws IOException {
@@ -56,23 +67,16 @@ public class ClassLineCounter {
         bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
         int count = 0;
         String line= "";
-        while((line = bufferedReader.readLine()) != null) {
-//            if(line.trim().contains("/**")) {
-//                count++;
-//                if(!line.trim().contains("*/")) {
-//                    while(!(line = bufferedReader.readLine()).contains("*/")) {
-//                        count++;
-//                    }
-//                }
-//                count++; // because the last line including "*/" need to be counted.
-//            } else if(line.trim().contains("//")) {
-//                System.out.println(line + count);
-//                count++;
-//            }
+        String pattern = ".*\".*\\/\\/.*\".*"; // this regex pattern is for this kind of things "//". With "" it's not the comments.
+        String pattern2 = ".*\\/\\/.*";  // this regex pattern is for //. this is for the comments
 
-            if(line.trim().contains("//")) {  // need to change from contain to matches(for using regex)
+//        String pattern3 = "(/\\*([^*]|[\\r\\n]|(\\*+([^*/]|[\\r\\n])))*\\*+/)|(//.*)";  // this pattern is for all the comments symbole
+        //url for reference  https://blog.ostermiller.org/finding-comments-in-source-code-using-regular-expressions/
+        while((line = bufferedReader.readLine()) != null) {
+            boolean pattern_check = Pattern.matches(pattern, line);
+            boolean pattern_check2 = Pattern.matches(pattern2, line);
+            if(!pattern_check && pattern_check2) {
                 count++;
-                //                System.out.println(line + count);
             }
         }
         return count;
