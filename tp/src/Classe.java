@@ -1,16 +1,16 @@
 public class Classe {
     private String className;
     private String path;
-    private int lineOfClass;
+    private int totalLine;
     private int lineOfComment;
     private float density;
 
-    public Classe(String path, String className, int lineOfClass, int lineOfComment) {
+    public Classe(String path, String className, int totalLine, int lineOfComment) {
         this.path = path;
         this.className = className;
-        this.lineOfClass = lineOfClass;
+        this.totalLine = totalLine;
         this.lineOfComment = lineOfComment;
-        this.density = (float) lineOfComment / (float) lineOfClass;
+        this.density = (float) lineOfComment / (float) totalLine;
     }
 
     public String getPath() {
@@ -38,11 +38,11 @@ public class Classe {
     }
 
     public int getLineOfClass() {
-        return lineOfClass;
+        return totalLine;
     }
 
     public void setLineOfClass(int lineOfClass) {
-        this.lineOfClass = lineOfClass;
+        this.totalLine = lineOfClass;
     }
 
     public int getLineOfComment() {
