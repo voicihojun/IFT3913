@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) throws IOException {
         if(args.length != 2) {
@@ -6,7 +8,7 @@ public class Main {
             System.exit(1);
         }
         ClassLineCounter classLineCounter = new ClassLineCounter();
-        String[] classData = classLineCounter.run(args[0], args[1]);
+        ArrayList<Classe> classData = classLineCounter.run(args[0], args[1]);
         WriteCSV writeCSV = new WriteCSV();
         String classLabel ="chemin#class#classe_LOC#classe_CLOC#classe_DC";
         String methodeLabel = "chemin#class#methode#methode_LOC#methode_CLOC#methode_DC";
