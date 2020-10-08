@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9a6c62c-ef13-4362-95bb-0461a3a9a31d" name="Default Changelist" comment="" />
+    <list default="true" id="a9a6c62c-ef13-4362-95bb-0461a3a9a31d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClassLineCounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassLineCounter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClassLineCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassLineCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classe.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Methode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Methode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WriteCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/WriteCSV.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WriteCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WriteCSV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/methodes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/methodes.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test1.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,11 +37,22 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1hdhbOfqo6akdlfCMGJGYEIKGLg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -39,7 +66,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.test1">
+  <component name="RunManager" selected="Application.Test1">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="tp1" />
@@ -47,8 +74,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test1" />
+    <configuration name="Test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test1" />
       <module name="tp1" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -56,7 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test1" />
+        <item itemvalue="Application.Test1" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -73,5 +100,18 @@
       <updated>1600346946268</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

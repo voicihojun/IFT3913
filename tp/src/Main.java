@@ -2,25 +2,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws IOException {
+
         if(args.length != 2) {
-            System.out.println("Usage: java LineCounter [directory] [extension]");
+            System.out.println("Usage: java Main [directory] [extension]");
             System.exit(1);
         }
-        ClassLineCounter classLineCounter = new ClassLineCounter();
-        ArrayList<Classe> classData = classLineCounter.run(args[0], args[1]);
-        WriteCSV writeCSV = new WriteCSV();
-        String classLabel ="chemin#class#classe_LOC#classe_CLOC#classe_DC";
-        String methodeLabel = "chemin#class#methode#methode_LOC#methode_CLOC#methode_DC";
-        writeCSV.writeDataToCsv(classLabel, classData,"/Users/hojunhwang/Documents/udem/IFT3913/tp/src/classes.csv");
-        writeCSV.writeDataToCsv(methodeLabel, classData,"/Users/hojunhwang/Documents/udem/IFT3913/tp/src/methodes.csv");
-        System.exit(0);
-        /**
-         url for reference  https://blog.ostermiller.org/finding-comments-in-source-code-using-regular-expressions/
-         dafdfad
-         alkdsjflakdsj
-         alsdkjflaskdjf
-         aldksjflaskdjf
-         alsdkjflaskdj
-         */
+        String filePath = args[0];
+        String extension = args[1];
+
+        if(!extension.isEmpty() && !extension.equals("java")) {
+            System.out.println("Wrong extension");
+            System.exit(1);
+        }
+
+        Counter counter = new Counter();
+        counter.run(filePath);
     }
 }
