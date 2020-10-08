@@ -6,7 +6,7 @@ public class MethodCountData {
     private int countLineOfComment;
     private float density;
     private int cyclomaticComplexity;
-    private float methodeBc;
+    private float methodBc;
 
     public MethodCountData(String classPath, String className, String methodName, int countLineOfCode, int countLineOfComment, int cyclomaticComplexity) {
         this.classPath = classPath;
@@ -16,7 +16,7 @@ public class MethodCountData {
         this.countLineOfComment = countLineOfComment;
         this.density = (float) countLineOfComment / (float) countLineOfCode;
         this.cyclomaticComplexity = cyclomaticComplexity;
-        this.methodeBc = density / (float) cyclomaticComplexity;
+        this.methodBc = density / (float) cyclomaticComplexity;
     }
 
     public String getClassPath() {
@@ -75,12 +75,12 @@ public class MethodCountData {
         this.cyclomaticComplexity = cyclomaticComplexity;
     }
 
-    public float getMethodeBc() {
-        return methodeBc;
+    public float getMethodBc() {
+        return methodBc;
     }
 
-    public void setMethodeBc(float methodeBc) {
-        this.methodeBc = methodeBc;
+    public void setMethodBc(float methodeBc) {
+        this.methodBc = methodeBc;
     }
 
     public String toString() {
@@ -91,6 +91,6 @@ public class MethodCountData {
                 + "::Methode_CLOC:: "+ getCountLineOfComment() + "\n"
                 + "::Methode_DC:: " + getDensity() + "\n"
                 + "::CC:: " + getCyclomaticComplexity() + "\n"
-                + "::Methode_BC:: " + getMethodeBc();
+                + "::Methode_BC:: " + getMethodBc();
     }
 }

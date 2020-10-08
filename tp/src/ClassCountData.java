@@ -4,13 +4,17 @@ public class ClassCountData {
     private int countLineOfCode;
     private int countLineOfComment;
     private float density;
+    private int wmc;
+    private float classBc;
 
-    public ClassCountData(String classPath, String className, int countLineOfCode, int countLineOfComment) {
+    public ClassCountData(String classPath, String className, int countLineOfCode, int countLineOfComment, int wmc) {
         this.countLineOfCode = countLineOfCode;
         this.countLineOfComment = countLineOfComment;
         this.className = className;
         this.classPath = classPath;
         this.density = (float) countLineOfComment / (float) countLineOfCode;
+        this.wmc = wmc;
+        this.classBc = density / (float) wmc;
 
     }
 
@@ -54,11 +58,29 @@ public class ClassCountData {
         this.density = density;
     }
 
+    public int getWmc() {
+        return wmc;
+    }
+
+    public void setWmc(int wmc) {
+        this.wmc = wmc;
+    }
+
+    public float getClassBc() {
+        return classBc;
+    }
+
+    public void setClassBc(float classBc) {
+        this.classBc = classBc;
+    }
+
     public String toString() {
         return "::FilePath:: " + getClassPath() +"\n"
                 + "::Class name:: "+ getClassName() + "\n"
                 + "::Class_LOC:: "+ getCountLineOfCode() + "\n"
                 + "::Class_CLOC:: "+ getCountLineOfComment() + "\n"
-                + "::Class_DC:: " + getDensity();
+                + "::Class_DC:: " + getDensity()
+                + "::WMC:: " + getWmc()
+                + "::Class_BC:: " + getClassBc();
     }
 }

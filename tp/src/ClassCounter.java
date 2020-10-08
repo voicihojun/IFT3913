@@ -6,6 +6,13 @@ public class ClassCounter {
 
     public String commentPattern = ".*(\\/\\*([^*]|[\\r\\n]|(\\*+([^*\\/]|[\\r\\n])))*\\*+\\/).*|.*(\\/\\/).*";
     public String classNamePattern = ".*[\\s](class|enum|interface)[\\s].*";
+    public String ccPattern = "(.*if.*|.*while.*)";
+    public String invalidCcPattern = ".*(\\/\\/)\\s*(if|while).*";
+    public String invalidCcPattern2 = ".*\"(.*if.*|.*while.*)\".*";
+    public String commentPatternForMultiLines = ".*(\\/\\*([^*]|[\\r\\n]|(\\*+([^*\\/]|[\\r\\n])))*\\*+\\/).*";
+    public String methodPattern = "^[\\s]*(public|private|protected|static|void)+.*\\{$";
+    public String classPattern = ".*[\\s](class|enum|interface)[\\s].*";
+    public String constructorPattern = ".*[\\s](public|private|protected)[\\s][\\w]*\\([\\w\\s<>,]*\\)\\s?\\{";
     public static ArrayList<ClassCountData> countDataList = new ArrayList<>();
 
     public ArrayList<ClassCountData> getData(String filePath) {
@@ -54,7 +61,7 @@ public class ClassCounter {
         String className = "";
         int countLineOfCode = 0;
         int countLineOfComment = 0;
-//        String className = file.getName().replace(".java", "");
+        int wmc = 0;
 
         while((line = bufferedReader.readLine()) != null) {
             if(!line.matches(commentPattern) && line.matches(classNamePattern)) {
@@ -74,8 +81,15 @@ public class ClassCounter {
             if(Pattern.matches(commentPattern, line)) {
                 countLineOfComment++;
             }
+            if(line.matches(methodPattern) && !line.matches(classPattern) && !line.matches(constructorPattern)) {
+                wmc++;
+            }
+            if(!line.matches(commentPatternForMultiLines) && !line.matches(invalidCcPattern2) && line.matches(ccPattern) && !line.matches(invalidCcPattern)) {
+                wmc++;
+            }
+
         }
-        ClassCountData data =  new ClassCountData(file.getPath(), className, countLineOfCode, countLineOfComment);
+        ClassCountData data =  new ClassCountData(file.getPath(), className, countLineOfCode, countLineOfComment, wmc);
         return data;
     }
 }

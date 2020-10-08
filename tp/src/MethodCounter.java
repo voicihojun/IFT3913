@@ -1,19 +1,19 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 public class MethodCounter {
-    public static String methodPattern = "^[\\s]*(public|private|protected|static|void)+.*\\{$";
-    public static String classPattern = ".*[\\s](class|enum|interface)[\\s].*";
-    public static String constructorPattern = ".*[\\s](public|private|protected)[\\s][\\w]*\\([\\w\\s<>,]*\\)\\s?\\{";
-    public static String commentPattern = ".*(\\/\\*([^*]|[\\r\\n]|(\\*+([^*\\/]|[\\r\\n])))*\\*+\\/).*|.*(\\/\\/).*";
-    public static String openBracePattern = ".*\\s\\{\\s?.*";
-    public static String invalidOpenBracePattern = ".*\".*\\{.*\" .*";
-    public static String closeBracePattern = ".*\\s\\}\\s?.*";
-    public static String invalidCloseBracePattern = ".*\".*\\}.*\".*";
-    public static String ccPattern = "(.*if.*|.*while.*)";
-    public static String invalidCcPattern = ".*(\\/\\/)\\s*(if|while).*";
-    public static String commentPatternForMultiLines = ".*(\\/\\*([^*]|[\\r\\n]|(\\*+([^*\\/]|[\\r\\n])))*\\*+\\/).*";
+    public String methodPattern = "^[\\s]*(public|private|protected|static|void)+.*\\{$";
+    public String classPattern = ".*[\\s](class|enum|interface)[\\s].*";
+    public String constructorPattern = ".*[\\s](public|private|protected)[\\s][\\w]*\\([\\w\\s<>,]*\\)\\s?\\{";
+    public String commentPattern = ".*(\\/\\*([^*]|[\\r\\n]|(\\*+([^*\\/]|[\\r\\n])))*\\*+\\/).*|.*(\\/\\/).*";
+    public String openBracePattern = ".*\\s\\{\\s?.*";
+    public String invalidOpenBracePattern = ".*\".*\\{.*\" .*";
+    public String closeBracePattern = ".*\\s\\}\\s?.*";
+    public String invalidCloseBracePattern = ".*\".*\\}.*\".*";
+    public String ccPattern = "(.*if.*|.*while.*)";
+    public String invalidCcPattern = ".*(\\/\\/)\\s*(if|while).*";
+    public String invalidCcPattern2 = ".*\"(.*if.*|.*while.*)\".*";
+    public String commentPatternForMultiLines = ".*(\\/\\*([^*]|[\\r\\n]|(\\*+([^*\\/]|[\\r\\n])))*\\*+\\/).*";
 
     public static ArrayList<MethodCountData> countDataList = new ArrayList<>();
 
@@ -44,7 +44,6 @@ public class MethodCounter {
                 if(generateData(file) != null) {
                     countDataList.addAll(generateData(file));
                 }
-
             }
         }
 
@@ -76,10 +75,6 @@ public class MethodCounter {
 
         while((line = bufferedReader.readLine()) != null) {
             String methodName = "";
-
-            if(!line.matches(commentPatternForMultiLines) && line.matches(ccPattern) && !line.matches(invalidCcPattern)) {
-                cc++;
-            }
 
             if(!line.matches(commentPattern) && line.matches(classPattern)) {
                 String[] splitLine = line.split(" ");
@@ -124,6 +119,9 @@ public class MethodCounter {
                         if(!line.isEmpty() && line.matches(commentPattern)) {
                             methodLineOfComment++;
                         }
+                        if(!line.matches(commentPatternForMultiLines) && !line.matches(invalidCcPattern2) && line.matches(ccPattern) && !line.matches(invalidCcPattern)) {
+                            cc++;
+                        }
                     }
                 }
 
@@ -134,11 +132,11 @@ public class MethodCounter {
 
                 open = 0;
                 close = 0;
+                cc = 1;
                 methodLineOfComment = 0;
                 methodLineOfCode = 0;
                 braces[0] = open;
                 braces[1] = close;
-
             }
         }
         return methodDataList;

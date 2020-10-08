@@ -1,3 +1,4 @@
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,6 +42,10 @@ public class Counter {
             fw.append("" + data.getCountLineOfComment());
             fw.append(",");
             fw.append("" + data.getDensity());
+            fw.append(",");
+            fw.append("" + data.getWmc());
+            fw.append(",");
+            fw.append("" + data.getClassBc());
             fw.append("\n");
         }
         fw.flush();
@@ -75,7 +80,7 @@ public class Counter {
             fw.append(",");
             fw.append("" + data.getCyclomaticComplexity());
             fw.append(",");
-            fw.append("" + data.getMethodeBc());
+            fw.append("" + data.getMethodBc());
             fw.append("\n");
         }
         fw.flush();
