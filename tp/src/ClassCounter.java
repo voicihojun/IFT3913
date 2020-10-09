@@ -15,6 +15,11 @@ public class ClassCounter {
     public String constructorPattern = ".*[\\s](public|private|protected)[\\s][\\w]*\\([\\w\\s<>,]*\\)\\s?\\{";
     public static ArrayList<ClassCountData> countDataList = new ArrayList<>();
 
+    /**
+     * C'est le même rôle comme la méthode dans MethodeCounter
+     * @param filePath
+     * @return
+     */
     public ArrayList<ClassCountData> getData(String filePath) {
         File file = new File(filePath);
 
@@ -33,6 +38,12 @@ public class ClassCounter {
         return countDataList;
     }
 
+    /**
+     * C'est le même rôle comme la méthode dans MethodeCounter
+     * @param directory
+     * @return
+     * @throws IOException
+     */
     private ArrayList<ClassCountData> generatedDataByDirectory(File directory) throws IOException {
         File[] files = directory.listFiles();
 
@@ -49,6 +60,16 @@ public class ClassCounter {
         }
         return countDataList;
     }
+
+
+    /**
+     *
+     * @param file
+     * @return ArrayList de ClassCountData incluant chemin, class, class LOC / CLOC / DC / WMC / BC
+     * @throws IOException
+     * En utilisant regular expression, identifier et calculer le nom de classe et LOC / CLOC / WMC,
+     * et avec les informations au dessus, on peut obtenir BC / DC
+     */
 
     private ClassCountData generateData(File file) throws IOException {
         if(!file.getName().endsWith("java")) {
