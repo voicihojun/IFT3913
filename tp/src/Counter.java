@@ -2,6 +2,14 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 public class Counter {
     /**
@@ -21,6 +29,15 @@ public class Counter {
         } catch(Exception e){
             System.out.println("Counter.run::" + e.getMessage());
         }
+
+//        ClassChart classChart = new ClassChart();
+//        classChart.run();
+            JFreeChart chart = getChart(countDataList, methodCountDataList);
+            System.out.println("testTESTtestTEST");
+            ChartFrame cf = new ChartFrame("Travail Pratique 1", chart);
+            cf.setSize(700, 700);
+            cf.setVisible(true);
+        
     }
 
     /**
@@ -101,5 +118,27 @@ public class Counter {
         }
         fw.flush();
         fw.close();
+    }
+
+    public JFreeChart getChart(ArrayList<ClassCountData> countDataList, ArrayList<MethodCountData> methodCountDataList) {
+        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
+        Collections.sort(countDataList);
+        Collections.sort(methodCountDataList);
+
+        for(int i = 0; i < 3; i++) {
+            dataSet.addValue(countDataList.get(i).getCountLineOfComment(), "class", countDataList.get(i).getClassName());
+            dataSet.addValue(methodCountDataList.get(i).getCountLineOfComment(), "method", methodCountDataList.get(i).getClassName());
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart("les 3 classes et les 3 méthodes les moins bien commentées",
+                "Name",
+                "Line Of Comments",
+                dataSet, // dataset
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false);
+
+        return chart;
     }
 }

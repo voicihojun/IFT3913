@@ -79,6 +79,10 @@ public class MethodCounter {
      * En utilisant regular expression, identifier et calculer le nom de method et LOC / CLOC / CC,
      * et avec les informations au dessus, on peut obtenir BC / DC
      */
+    /*
+    alksdflakjs
+    asdlkfjalskdjf
+            asldkfjalskdjf */
     private ArrayList<MethodCountData> generateData(File file) throws IOException {
         if(!file.getName().endsWith("java")) {
             return null;

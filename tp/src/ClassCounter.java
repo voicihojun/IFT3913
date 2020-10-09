@@ -88,18 +88,18 @@ public class ClassCounter {
             if(!line.matches(commentPattern) && line.matches(classNamePattern)) {
                 String[] splitLine = line.split(" ");
                 for(int i = 0; i < splitLine.length; i++) {
-                    if (splitLine[i].equals("class")) {
+                    if (className.isEmpty() && splitLine[i].equals("class")) {
                         className = splitLine[i+1].replace("{", "").trim();
                         break;
                     }
                 }
             }
 
-            if(!line.trim().isEmpty()) {
+            if(!line.isEmpty()) {
                 countLineOfCode++;
             }
 
-            if(Pattern.matches(commentPattern, line)) {
+            if(line.matches(commentPattern)) {
                 countLineOfComment++;
             }
             if(line.matches(methodPattern) && !line.matches(classPattern) && !line.matches(constructorPattern)) {

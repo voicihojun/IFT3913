@@ -1,4 +1,6 @@
-public class ClassCountData {
+import java.util.Comparator;
+
+public class ClassCountData implements Comparable<ClassCountData>{
     private String classPath;
     private String className;
     private int countLineOfCode;
@@ -80,7 +82,47 @@ public class ClassCountData {
                 + "::Class_LOC:: "+ getCountLineOfCode() + "\n"
                 + "::Class_CLOC:: "+ getCountLineOfComment() + "\n"
                 + "::Class_DC:: " + getDensity()
-                + "::WMC:: " + getWmc()
-                + "::Class_BC:: " + getClassBc();
+                + "::WMC:: " + getDensity()
+                + "::Class_DC:: " + getDensity();
     }
+
+    @Override
+    public int compareTo(ClassCountData classCountData) {
+        int compareage = classCountData.getCountLineOfComment();
+        /* For Ascending order*/
+//        return this.countLineOfComment-compareage;
+        /* For Descentding order*/
+        return compareage-this.countLineOfComment;
+    }
+
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
 }
