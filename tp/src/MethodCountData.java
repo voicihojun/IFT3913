@@ -1,4 +1,6 @@
-public class MethodCountData {
+import java.lang.reflect.Method;
+
+public class MethodCountData implements Comparable<MethodCountData> {
     private String classPath;
     private String className;
     private String methodName;
@@ -93,4 +95,26 @@ public class MethodCountData {
                 + "::CC:: " + getCyclomaticComplexity() + "\n"
                 + "::Methode_BC:: " + getMethodBc();
     }
+
+    @Override
+    public int compareTo(MethodCountData methodCountData) {
+        int compareage = methodCountData.getCountLineOfComment();
+        /* For Ascending order*/
+//        return this.countLineOfComment-compareage;
+        /* For Descentding order*/
+        return compareage-this.countLineOfComment;
+    }
+
+
+    // asdlkfjalksdjf
+    // asdlkfjalksdjf
+    // asdlkfjalksdjf
+    // asdlkfjalksdjf
+    // asdlkfjalksdjf
+    // asdlkfjalksdjf
+    // asdlkfjalksdjf
+    // asdlkfjalksdjf
+    // asdlkfjalksdjf
+    // asdlkfjalksdjf
+
 }
