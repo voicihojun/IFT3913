@@ -2,6 +2,13 @@
 import java.io.IOException;
 
 public class Main {
+    /**
+     *
+     * @param args  mettre un répertoire à checker, java
+     *              par exemple, apres avoir fait javac *java,
+     *              tapez  "java Main [chemin] java"
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
 
         if(args.length != 2) {

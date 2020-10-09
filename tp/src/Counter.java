@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Counter {
+    /**
+     * En utilisant les methodes writeClassCSV, writeethodCSV, cela écrit les donneés dans les fichiers de csv
+     * @param filePath
+     */
     public void run(String filePath){
         ClassCounter classCounter = new ClassCounter();
         MethodCounter methodCounter = new MethodCounter();
@@ -19,6 +23,12 @@ public class Counter {
         }
     }
 
+    /**
+     * Cette methode est pour écrire les données dans le fichier de class.csv
+     * @param filePath
+     * @param countDataList
+     * @throws IOException
+     */
     private void writeClassCSV(String filePath, ArrayList<ClassCountData> countDataList) throws IOException {
         String label ="chemin,class,classe_LOC,classe_CLOC,classe_DC,WMC,classe_BC";
 
@@ -52,6 +62,12 @@ public class Counter {
         fw.close();
     }
 
+    /**
+     * Cette methode est pour écrire les données dans le fichier de method.csv
+     * @param filePath
+     * @param countDataList
+     * @throws IOException
+     */
     private void writeMethodCSV(String filePath, ArrayList<MethodCountData> countDataList) throws IOException {
         String label ="chemin,class,methode,methode_LOC,methode_CLOC,methode_DC,CC,methode_BC";
 

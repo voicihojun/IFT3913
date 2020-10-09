@@ -17,6 +17,11 @@ public class MethodCounter {
 
     public static ArrayList<MethodCountData> countDataList = new ArrayList<>();
 
+    /**
+     *
+     * @param filePath
+     * @return ArrayList donnée des methodes
+     */
     public ArrayList<MethodCountData> getData(String filePath) {
         File file = new File(filePath);
 
@@ -33,9 +38,14 @@ public class MethodCounter {
         return countDataList;
     }
 
+    /**
+     *
+     * @param directory
+     * @return
+     * @throws IOException
+     */
     private ArrayList<MethodCountData> generatedDataByDirectory(File directory) throws IOException {
         File[] files = directory.listFiles();
-        String path2;
 
         for(File file : files) {
             if(file.isDirectory()) {
@@ -50,12 +60,25 @@ public class MethodCounter {
         return countDataList;
     }
 
+    /**
+     *
+     * @param braces open : {, close: } // Quand le nombre de open et de close est le même, un methode est fini.
+     * @return true ou false
+     */
     private boolean braceIsValid(int[] braces) {
         int open = braces[0];
         int close = braces[1];
         return open == close;
     }
 
+    /**
+     *
+     * @param file
+     * @return ArrayList de MethodCountData incluant chemin, class, method, method LOC / CLOC / DC / CC / BC
+     * @throws IOException
+     * En utilisant regular expression, identifier et calculer le nom de method et LOC / CLOC / CC,
+     * et avec les informations au dessus, on peut obtenir BC / DC
+     */
     private ArrayList<MethodCountData> generateData(File file) throws IOException {
         if(!file.getName().endsWith("java")) {
             return null;
