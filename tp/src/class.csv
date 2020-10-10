@@ -1,9 +1,0 @@
-chemin,class,classe_LOC,classe_CLOC,classe_DC,WMC,classe_BC
-/Users/hojunhwang/Documents/udem/IFT3913/homework/src/test/Test1.java,Test1,7,4,0.5714286,0,Infinity
-/Users/hojunhwang/Documents/udem/IFT3913/homework/src/MethodCountData.java,MethodCountData,97,13,0.13402061,18,0.0074455896
-/Users/hojunhwang/Documents/udem/IFT3913/homework/src/ClassCountData.java,ClassCountData,108,33,0.30555555,16,0.019097222
-/Users/hojunhwang/Documents/udem/IFT3913/homework/src/ClassCounter.java,ClassCounter,101,0,0.0,15,0.0
-/Users/hojunhwang/Documents/udem/IFT3913/homework/src/Counter.java,Counter,130,3,0.023076924,6,0.0038461538
-/Users/hojunhwang/Documents/udem/IFT3913/homework/src/Main.java,Main,25,1,0.04,3,0.013333333
-/Users/hojunhwang/Documents/udem/IFT3913/homework/src/ClassChart.java,ClassChart,52,13,0.25,3,0.083333336
-/Users/hojunhwang/Documents/udem/IFT3913/homework/src/MethodCounter.java,MethodCounter,152,1,0.0065789474,22,2.9904305E-4

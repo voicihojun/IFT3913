@@ -1,0 +1,27 @@
+Ho jun Hwang(matricule : 20108081)
+Montassar Elkolli
+
+
+Explication du code
+
+Main: Après avoir compilé les fichiers java, exécutez le fichier via la commande "java Main [chemin] [extension]". Instanciez Counter et exécutez la méthode d'exécution. L'extension doit être java.
+
+Counter: cette classe instancie ClassCounter et MethodCounter. Et cela calcule le nombre de lignes, commentaires, etc. du fichier java dans filePath via la méthode getData () de chaque instance et les stocke dans ArrayList. Après cela, cette classe est écrite dans les fichiers class.csv et method.csv via les méthodes writeClassCSV et writeMethodCSV.
+(Affichage visuel réussi via JFreeChart. Actuellement, il est commenté, mais via Collections.sort de la méthode JFreeChart, il trie le tableau en fonction du nombre de commentaires et affiche les trois données avec le plus petit nombre de commentaires dans un graphique à barres.)
+
+ClassCountData: objet dont les données doivent être enregistrées dans class.csv
+
+MethodCountData: objet dont les données doivent être enregistrées dans method.csv
+
+ClassCounter: enregistre les informations nécessaires dans l'objet ClassCountData lors de la lecture des fichiers java dans le chemin.
+
+MethodCounter: lors de la lecture des méthodes de chaque classe, les informations nécessaires sont enregistrées dans l'objet MethodCountData.
+
+
+
+
+
+Partie 4.
+
+On a appliqué notre programme pour fichier du JFreeChart GitHub. Au milieu de l'exécution, il y a une erreur à cause de class Name. Alors, on l'a fixé comme “className = file.getName();”. Après, ca marche jusqu'au bout du répertoire
+. Mais, il y avait un problème, car cela va au fond mais cela ne marche pas récursivement. Pour améliorer notre application, on doit changer la façon à extraire le nom de classe(qui ne pas utiliser le magic valeur), et compléter l'appel récursif.

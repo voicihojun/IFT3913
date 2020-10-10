@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
+
 
 public class ClassCounter {
 
@@ -89,7 +89,9 @@ public class ClassCounter {
                 String[] splitLine = line.split(" ");
                 for(int i = 0; i < splitLine.length; i++) {
                     if (className.isEmpty() && splitLine[i].equals("class")) {
-                        className = splitLine[i+1].replace("{", "").trim();
+//                        className = splitLine[i+1].replace("{", "").trim();
+                        className = file.getName();  //ca marche pour JfreeChart directory pour TP partie 4 si je l'ai utilisé au lieu de ligne 91.
+                        // className = splitLine[i+1].replace("{", "").trim();  <-- ligne 92 : c a dire que ca ne marche pas pour tous les cas.
                         break;
                     }
                 }
@@ -111,6 +113,8 @@ public class ClassCounter {
 
         }
         ClassCountData data =  new ClassCountData(file.getPath(), className, countLineOfCode, countLineOfComment, wmc);
+        System.out.println("PATH :: " + data.getClassPath());
+        System.out.println("LOC :: " + data.getCountLineOfCode());
         return data;
     }
 }
